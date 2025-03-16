@@ -40,9 +40,7 @@ class BillSerializer(serializers.ModelSerializer):
         bill = Bill.objects.create(
             staff=self.context.get("request").user, **validated_data
         )
-        items_list = []
         for item in items:
-            items_list.append(BillItem(bill=bill, **item))
-        BillItem.objects.bulk_create(items_list)
+            BillItem.objects.create(bill=bill, **item)
         # send email to customer
         return bill

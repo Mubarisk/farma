@@ -8,5 +8,5 @@ class TokenObtainPairSerializer(TokenObtainPairSerializer):
         refresh = self.get_token(self.user)
         access = refresh.access_token
         jti = access["jti"]
-        cache.set(jti, self.user.id, timeout=360000)
+        cache.set(jti, self.user.id, timeout=60 * 60 * 24 * 7)
         return {"access": str(access), "refresh": str(refresh)}
