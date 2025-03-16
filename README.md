@@ -3,15 +3,15 @@
 ## Project Setup
 
 ### Prerequisites
-- Python 3.10+
+- Python 3.8+
 - Django & Django REST Framework
 - PostgreSQL or SQLite (for local development)
 
 ### Installation Steps
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Mubarisk/farma.git
-   cd farma
+   git clone <repository_url>
+   cd medical-shop-billing
    ```
 
 2. **Create and activate a virtual environment:**
@@ -47,6 +47,10 @@
   mkdir logs
   ```
 - **Ensure `.env` file is configured for database & JWT settings**
+
+## API Documentation
+- **Postman Collection:** A Postman API JSON is included with the project for easy testing.
+- **Swagger UI:** API documentation is available at `http://localhost:8000/swagger/`
 
 ## API Endpoints
 

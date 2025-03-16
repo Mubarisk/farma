@@ -1,0 +1,555 @@
+{
+  "info": {
+    "_postman_id": "50875ef9-b313-4300-a9c9-7b6fcf031dbd",
+    "name": "APIS",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "17084632",
+    "_collection_link": "https://www.postman.com/avionics-architect-4016704/workspace/farma/collection/17084632-50875ef9-b313-4300-a9c9-7b6fcf031dbd?action=share&source=collection_link&creator=17084632"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/auth/login/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "auth", "login", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout",
+          "request": {
+            "auth": {
+              "type": "bearer"
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/auth/logout/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "auth", "logout", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "register",
+          "request": {
+            "auth": {
+              "type": "bearer"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"5o1grYkVZ+8DZQ_U-185ZOkGekMlaqxqviKk2Q3TJdW7cH6f\",\n  \"role\": \"admin\",\n  \"password\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/auth/register/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "auth", "register", ""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "billing",
+      "item": [
+        {
+          "name": "billing",
+          "request": {
+            "auth": {
+              "type": "bearer"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-CSRFTOKEN",
+                "value": "FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"quantity\": 9223372036854776000,\n      \"medicine_package\": 0,\n      \"customer_mail\":\"mail\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/billing/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "billing", ""]
+            },
+            "description": "Generated from cURL: curl -X 'POST' \\\n  'http://localhost:8000/api/v1/billing/' \\\n  -H 'accept: application/json' \\\n  -H 'Content-Type: application/json' \\\n  -H 'X-CSRFTOKEN: FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2' \\\n  -d '{\n  \"items\": [\n    {\n      \"quantity\": 9223372036854776000,\n      \"medicine_package\": 0\n    }\n  ]\n}'"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "medicine",
+      "item": [
+        {
+          "name": "list",
+          "request": {
+            "auth": {
+              "type": "bearer"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-CSRFTOKEN",
+                "value": "FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/medicine/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "medicine", ""]
+            },
+            "description": "Generated from cURL: curl -X 'GET' \\\n  'http://localhost:8000/api/v1/medicine/' \\\n  -H 'accept: application/json' \\\n  -H 'X-CSRFTOKEN: FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2'"
+          },
+          "response": []
+        },
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-CSRFTOKEN",
+                "value": "FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"packages\": [\n    {\n     \n      \"package_type\": \"single\",\n      \"price\": \"10\",\n      \"stock\": 10,\n      \"is_base_unit\": true,\n      \"conversion_factor\": \"1\"\n    },{\n     \n      \"package_type\": \"pack\",\n      \"price\": \"100\",\n      \"stock\": 10,\n      \"is_base_unit\": false,\n      \"conversion_factor\": \"10\"\n    }\n  ],\n  \"name\": \"qa\",\n  \n  \"expiry_date\": \"2025-03-16\",\n  \"category\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/medicine/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "medicine", ""]
+            },
+            "description": "Generated from cURL: curl -X 'POST' \\\n  'http://localhost:8000/api/v1/medicine/' \\\n  -H 'accept: application/json' \\\n  -H 'Content-Type: application/json' \\\n  -H 'X-CSRFTOKEN: FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2' \\\n  -d '{\n  \"packages\": [\n    {\n      \"id\": 0,\n      \"modify\": \"add\",\n      \"package_type\": \"single\",\n      \"price\": \"string\",\n      \"stock\": 9223372036854776000\n    }\n  ],\n  \"name\": \"string\",\n  \"stock_quantity\": 9223372036854776000,\n  \"expiry_date\": \"2025-03-16\",\n  \"is_deleted\": true,\n  \"deleted_at\": \"2025-03-16T08:07:47.167Z\",\n  \"category\": 0\n}'"
+          },
+          "response": []
+        },
+        {
+          "name": "category post",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-CSRFTOKEN",
+                "value": "FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/medicine/categories/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "medicine", "categories", ""]
+            },
+            "description": "Generated from cURL: curl -X 'POST' \\\n  'http://localhost:8000/api/v1/medicine/categories/' \\\n  -H 'accept: application/json' \\\n  -H 'Content-Type: application/json' \\\n  -H 'X-CSRFTOKEN: FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2' \\\n  -d '{\n  \"name\": \"string\"\n}'"
+          },
+          "response": []
+        },
+        {
+          "name": "categories list",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-CSRFTOKEN",
+                "value": "FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/medicine/categories/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "medicine", "categories", ""]
+            },
+            "description": "Generated from cURL: curl -X 'GET' \\\n  'http://localhost:8000/api/v1/medicine/categories/' \\\n  -H 'accept: application/json' \\\n  -H 'X-CSRFTOKEN: FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2'"
+          },
+          "response": []
+        },
+        {
+          "name": "category delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer fff"
+              },
+              {
+                "key": "X-CSRFTOKEN",
+                "value": "FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/medicine/categories/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "medicine", "categories", "1", ""]
+            },
+            "description": "Generated from cURL: curl -X 'DELETE' \\\n  'http://localhost:8000/api/v1/medicine/categories/1/' \\\n  -H 'accept: application/json' \\\n  -H 'Authorization: Bearer fff' \\\n  -H 'X-CSRFTOKEN: FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2'"
+          },
+          "response": []
+        },
+        {
+          "name": "category put",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer fff"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-CSRFTOKEN",
+                "value": "FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/medicine/categories/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "medicine", "categories", "1", ""]
+            },
+            "description": "Generated from cURL: curl -X 'PUT' \\\n  'http://localhost:8000/api/v1/medicine/categories/1/' \\\n  -H 'accept: application/json' \\\n  -H 'Authorization: Bearer fff' \\\n  -H 'Content-Type: application/json' \\\n  -H 'X-CSRFTOKEN: FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2' \\\n  -d '{\n  \"name\": \"string\"\n}'"
+          },
+          "response": []
+        },
+        {
+          "name": "medicine get",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer fff"
+              },
+              {
+                "key": "X-CSRFTOKEN",
+                "value": "FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/medicine/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "medicine", "1", ""]
+            },
+            "description": "Generated from cURL: curl -X 'GET' \\\n  'http://localhost:8000/api/v1/medicine/1/' \\\n  -H 'accept: application/json' \\\n  -H 'Authorization: Bearer fff' \\\n  -H 'X-CSRFTOKEN: FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2'"
+          },
+          "response": []
+        },
+        {
+          "name": "category get",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer fff"
+              },
+              {
+                "key": "X-CSRFTOKEN",
+                "value": "FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/medicine/categories/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "medicine", "categories", "1", ""]
+            },
+            "description": "Generated from cURL: curl -X 'GET' \\\n  'http://localhost:8000/api/v1/medicine/categories/1/' \\\n  -H 'accept: application/json' \\\n  -H 'Authorization: Bearer fff' \\\n  -H 'X-CSRFTOKEN: FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2'"
+          },
+          "response": []
+        },
+        {
+          "name": "medicine delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer fff"
+              },
+              {
+                "key": "X-CSRFTOKEN",
+                "value": "FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/medicine/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "medicine", "1", ""]
+            },
+            "description": "Generated from cURL: curl -X 'DELETE' \\\n  'http://localhost:8000/api/v1/medicine/1/' \\\n  -H 'accept: application/json' \\\n  -H 'Authorization: Bearer fff' \\\n  -H 'X-CSRFTOKEN: FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2'"
+          },
+          "response": []
+        },
+        {
+          "name": "medicine put",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer fff"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-CSRFTOKEN",
+                "value": "FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"packages\": [\n    {\n     \"id\":14,\n      \"modify\":\"update\",\n      \"package_type\": \"single\",\n      \"price\": \"10\",\n      \"stock\": 100,\n      \"is_base_unit\": true,\n      \"conversion_factor\": \"1\"\n    }\n  ],\n  \"name\": \"qa\",\n  \n  \"expiry_date\": \"2025-03-16\",\n  \"category\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/medicine/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "medicine", "1", ""]
+            },
+            "description": "Generated from cURL: curl -X 'PUT' \\\n  'http://localhost:8000/api/v1/medicine/1/' \\\n  -H 'accept: application/json' \\\n  -H 'Authorization: Bearer fff' \\\n  -H 'Content-Type: application/json' \\\n  -H 'X-CSRFTOKEN: FsX33usQGCJGYgRE8augIUbyhpeHunAtoVkhw4qTcd7pax923RQbwuUZ9IDLlzF2' \\\n  -d '{\n  \"packages\": [\n    {\n      \"id\": 0,\n      \"modify\": \"add\",\n      \"package_type\": \"single\",\n      \"price\": \"string\",\n      \"stock\": 9223372036854776000\n    }\n  ],\n  \"name\": \"string\",\n  \"stock_quantity\": 9223372036854776000,\n  \"expiry_date\": \"2025-03-16\",\n  \"is_deleted\": true,\n  \"deleted_at\": \"2025-03-16T08:11:07.129Z\",\n  \"category\": 0\n}'"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "dashboard",
+      "item": [
+        {
+          "name": "dashboard-stock",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{vault:authorization-secret}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-CSRFTOKEN",
+                "value": "mzivVTDW2cF64K7LSfg87XzvyPxnshNw52FJotBZyN3Pg1p9NWC3VxiWq8WrjtS5"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/dashboard/stock/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "dashboard", "stock", ""]
+            },
+            "description": "Generated from cURL: curl -X 'GET' \\\n  'http://localhost:8000/api/v1/dashboard/stock/' \\\n  -H 'accept: application/json' \\\n  -H 'X-CSRFTOKEN: mzivVTDW2cF64K7LSfg87XzvyPxnshNw52FJotBZyN3Pg1p9NWC3VxiWq8WrjtS5'"
+          },
+          "response": []
+        },
+        {
+          "name": "dashboard-reports",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{vault:authorization-secret}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-CSRFTOKEN",
+                "value": "kAKPDWIaV9pLIfWEngZP81VlndJf4hF633736wGdrKNuUwe2iXlKWBEMfw8jVtKF"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/dashboard/reports/?start_date=2000-10-10&end_date=2025-10-10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "dashboard", "reports", ""],
+              "query": [
+                {
+                  "key": "start_date",
+                  "value": "2000-10-10"
+                },
+                {
+                  "key": "end_date",
+                  "value": "2025-10-10"
+                },
+                {
+                  "key": "staff",
+                  "value": "1",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl -X 'GET' \\\n  'http://localhost:8000/api/v1/dashboard/reports/' \\\n  -H 'accept: application/json' \\\n  -H 'X-CSRFTOKEN: kAKPDWIaV9pLIfWEngZP81VlndJf4hF633736wGdrKNuUwe2iXlKWBEMfw8jVtKF'"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
