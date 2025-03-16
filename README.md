@@ -69,9 +69,4 @@
 - `GET /api/dashboard/stock/` → Get stock availability
 - `GET /api/dashboard/reports/` → Generate sales report (date range, staff-wise billing)
 
-## Notes
-- Ensure all requests requiring authentication include a valid JWT token in the headers.
-- Error responses will return standard HTTP status codes with JSON error messages.
-
-For additional details, refer to the project documentation.
 
