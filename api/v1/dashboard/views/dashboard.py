@@ -3,6 +3,7 @@ from helpers.permissions import IsAdmin
 from farma.config.response import SuccessResponse, ErrorResponse
 from medicine.models import Medicine, Bill
 from django.utils.dateparse import parse_date
+import decimal
 
 
 class StockAvailabilityAPIView(GenericAPIView):
@@ -26,8 +27,9 @@ class SalesReportsAPIView(GenericAPIView):
     permission_classes = [IsAdmin]  # Only admin can access this API
 
     def get(self, request):
-        start_date = request.GET.get("start_date")
-        end_date = request.GET.get("end_date")
+        start_date = request.query_params.get("start_date")
+        end_date = request.query_params.get("end_date")
+        staff = request.query_params.get("staff")
 
         if not start_date or not end_date:
             return ErrorResponse(
@@ -39,10 +41,11 @@ class SalesReportsAPIView(GenericAPIView):
 
         if not start_date or not end_date:
             return ErrorResponse(message="Invalid date format. Use YYYY-MM-DD")
+        filter_kwargs = {"created_at__date__range": [start_date, end_date]}
+        if staff:
+            filter_kwargs["staff_id"] = staff
 
-        bills = Bill.objects.filter(
-            created_at__date__range=[start_date, end_date]
-        )
+        bills = Bill.objects.filter(**filter_kwargs)
 
         report_data = {}
 
@@ -51,7 +54,7 @@ class SalesReportsAPIView(GenericAPIView):
             if staff_name not in report_data:
                 report_data[staff_name] = {
                     "total_sales": 0,
-                    "total_revenue": 0.0,
+                    "total_revenue": decimal.Decimal(0.0),
                     "bills": [],
                 }
 

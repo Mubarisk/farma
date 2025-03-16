@@ -3,8 +3,8 @@ from django.contrib.auth.admin import UserAdmin
 from user.models import User
 
 
-class UserAdmin(UserAdmin):
-    pass
+# class UserAdmin(UserAdmin):
+    # pass
     # add_fieldsets = (
     #     (None, {
     #         'classes': ('wide',),
@@ -25,6 +25,6 @@ class UserAdmin(UserAdmin):
     # list_display = ('id', 'name', 'mobile', 'user_type')
 
 
-admin.site.register(User, UserAdmin)
+admin.site.register(User)
 
 

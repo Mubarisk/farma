@@ -32,6 +32,7 @@ class BillSerializer(serializers.ModelSerializer):
             self.total_price += (
                 item["medicine_package"].price * item["quantity"]
             )
+        return validated_data
 
     def create(self, validated_data):
         items = validated_data.pop("items")
