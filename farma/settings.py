@@ -113,7 +113,7 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 20,
-    # "EXCEPTION_HANDLER": "farma.config.exception_handler.CustomExceptionHandler",
+    "EXCEPTION_HANDLER": "farma.config.exception_handler.CustomExceptionHandler",
 }
 
 # Swagger settings
