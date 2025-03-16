@@ -5,3 +5,4 @@ python-decouple==3.8
 django_filter==25.1
 djangorestframework-simplejwt==5.5.0
 drf-yasg==1.21.10
+django-redis==5.4.0

@@ -59,7 +59,7 @@ CORS_ALLOW_HEADERS = default_headers + ("cache-control",)
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "farma/templates")],
+        "DIRS": [os.path.join(BASE_DIR)],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -114,7 +114,7 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 20,
-    "EXCEPTION_HANDLER": "farma.config.exception_handler.CustomExceptionHandler",
+    # "EXCEPTION_HANDLER": "farma.config.exception_handler.CustomExceptionHandler",
 }
 
 # Swagger settings
@@ -129,6 +129,7 @@ SWAGGER_SETTINGS = {
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": datetime.timedelta(days=20),
     "REFRESH_TOKEN_LIFETIME": datetime.timedelta(days=30),
+    "TOKEN_OBTAIN_SERIALIZER": "api.v1.auth.serializers.login.TokenObtainPairSerializer",
 }
 
 # Logging
@@ -179,6 +180,15 @@ STATIC_ROOT = BASE_DIR / "static"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    }
+}
 # Celery
 # BROKER_URL = 'redis://localhost:6379/0'
 # CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
